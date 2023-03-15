@@ -10,14 +10,25 @@ function App() {
 
   return (
     <div className="App">
-      
-
+      <BrowserRouter>
 
       <Header />
-      <Gallery />
-      
-    </div>
-  )
-}
+      <Routes>
 
-export default App
+        <Route exact path="/" element={<Gallery />} />
+        <Route path="/slideshow/:id" element={<Slideshow />} />
+
+      </Routes>
+
+      
+
+
+      </BrowserRouter>
+
+      </div>
+
+  )
+
+}
+    
+export default App;
