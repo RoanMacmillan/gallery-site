@@ -32,6 +32,7 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   position: relative;
+  
 }
 
 /* responsive images/videos */
@@ -43,11 +44,23 @@ video {
   max-width: 100%;
 }
 
-@media screen and (min-width: 662px) {
+@media screen and (min-width: 768px) {
 
   .App {
 
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+}
+
+
+@media screen and (min-width: 1440px) {
+
+
+  .App {
+
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+  
 }
