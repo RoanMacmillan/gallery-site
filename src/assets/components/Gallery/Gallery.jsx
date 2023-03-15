@@ -3,6 +3,7 @@ import "./Gallery.css";
 import galleryData from "../../data.json";
 
 const Gallery = () => {
+    
   const galleryRef = useRef(null);
 
   useEffect(() => {
@@ -10,7 +11,7 @@ const Gallery = () => {
     let delay = .5;
     galleryItems.forEach((item) => {
       item.style.animationDelay = delay + "s";
-      delay += 0.35;
+      delay += 0.25;
     });
   }, []);
 
