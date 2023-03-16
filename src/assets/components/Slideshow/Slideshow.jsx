@@ -2,69 +2,78 @@ import { useParams } from "react-router-dom";
 import galleryData from "../../data.json";
 import "./Slideshow.css";
 import React, { useState } from "react";
-import backBtn from '../../images/shared/icon-back-button.svg'
-import fwdBtn from '../../images/shared/icon-next-button.svg'
-
+import backBtn from "../../images/shared/icon-back-button.svg";
+import fwdBtn from "../../images/shared/icon-next-button.svg";
 
 const Slideshow = () => {
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const image = galleryData.find((item) => item.id === parseInt(id));
-  console.log(image);
   if (!image) {
     return <div>Image not found</div>;
   }
 
-  const handleNext = () => {
+ // Filter the galleryData to get an array of images to display in the slideshow
+ const images = galleryData.filter((item) => item.gallery === image.gallery);
 
-  
-  }
+ // State variable to keep track of the index of the currently displayed image
+ const [currentImageIndex, setCurrentImageIndex] = useState(
+   images.findIndex((item) => item.id === image.id)
+ );
 
-  const handlePrev = () => {
+ // goes back in slideshow
+ const prevImage = () =>
+ setCurrentImageIndex(
+   (currentImageIndex - 1 + images.length) % images.length
+ );
 
+ // goes forward
+const nextImage = () =>
+ setCurrentImageIndex((currentImageIndex + 1) % images.length);
 
-  }
-
-
-  return (
-    <div className="slideShow">
-      <div className="heroTitleWrapper">
-        <img
-          src={image.images.hero.small}
-          alt={image.name}
-          className="hero"
-        ></img>
-        <div className="heroBtnWrapper">
-          <button
-            className="modalBtn"
-            type="button"
-            onClick={() => setShowModal(true)}
-          >view image
-          </button>
-        </div>
-        <div className="artistLabel">
-          <h1>{image.name}</h1>
-          <p>{image.artist.name}</p>
-        </div>
-      </div>
+ return (
+  <div className="slideShow">
+    <div className="heroTitleWrapper">
       <img
-        src={image.artist.image}
-        alt={image.artist.name}
-        className="portrait"
-      />
-      <div className="descripWrapper">
-      <p className="descrip">{image.description}</p>
+        src={images[currentImageIndex].images.hero.small}
+        alt={images[currentImageIndex].name}
+        className="hero"
+      ></img>
+      <div className="heroBtnWrapper">
+        <button
+          className="modalBtn"
+          type="button"
+          onClick={() => setShowModal(true)}
+        >
+          view image
+        </button>
       </div>
-      <a href={image.source}>Go to source</a>
+      <div className="artistLabel">
+        <h1>{images[currentImageIndex].name}</h1>
+        <p>{images[currentImageIndex].artist.name}</p>
+      </div>
+    </div>
+    <img
+      src={images[currentImageIndex].artist.image}
+      alt={images[currentImageIndex].artist.name}
+      className="portrait"
+    />
+    <div className="descripWrapper">
+      <p className="descrip">{images[currentImageIndex].description}</p>
+    </div>
+    <a href={images[currentImageIndex].source}>Go to source</a>
 
-      {showModal && (
-        <div className="modal" onClick={() => setShowModal(false)}>
-          <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-            <img src={image.images.gallery} alt={image.name} />
-            <button
-              className="closeBtn"
-              type="button"
-              onClick={() => setShowModal(false)}
+    {showModal && (
+      <div className="modal" onClick={() => setShowModal(false)}>
+        <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+          <img
+            src={images[currentImageIndex].images.gallery}
+            alt={images[currentImageIndex].name}
+          />
+          <button
+            className="closeBtn"
+            type="button"
+            onClick={() => setShowModal(false)}
             >
               Close
             </button>
@@ -72,23 +81,21 @@ const Slideshow = () => {
         </div>
       )}
 
-<div className="navigationContainer">
+      <div className="navigationContainer">
+        <div className="navigationTitle">
+          <h2>{images[currentImageIndex].name}</h2>
+          <p>{images[currentImageIndex].artist.name}</p>
+        </div>
 
-  <div className="navigationTitle">
-  <h2>{image.name}</h2>
-          <p>{image.artist.name}</p>
-
-
-  </div>
-
-<div className="navigationButtons">
-        <button onClick={handlePrev}><img src={backBtn} alt='back button'></img></button>
-        <button onClick={handleNext}><img src={fwdBtn} alt='next button'></img></button>
+        <div className="navigationButtons">
+          <button onClick={prevImage}>
+            <img src={backBtn} alt="back button"></img>
+          </button>
+          <button onClick={nextImage}>
+            <img src={fwdBtn} alt="next button"></img>
+          </button>
+        </div>
       </div>
-
-      </div>
-
-
     </div>
   );
 };

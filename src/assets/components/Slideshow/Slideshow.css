@@ -49,12 +49,12 @@
 }
 
 .descrip {
-  margin-top: 54px;
+  margin-top: 40px;
   font-weight: 700;
   font-size: 14px;
   line-height: 28px;
   color: #7d7d7d;
-  padding-bottom: 68px;
+  padding-bottom: 40px;
 }
 
 .slideShow a {
@@ -158,7 +158,7 @@
 }
 
 .navigationContainer {
-  margin-top: 67px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,10 +166,17 @@
 }
 
 .navigationButtons {
-
   display: flex;
   gap: 23.24px;
 
+}
+
+.navigationButtons button {
+  cursor: pointer;
+
+  border: none;
+  background: none;
+  width: 16.78px;
 }
 
 @media screen and (min-width: 1440px) {
