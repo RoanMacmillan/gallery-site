@@ -1,12 +1,15 @@
 import React from "react";
 import Logo from "../../images/shared/logo.svg";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header>
       <nav>
-        <img className="logo" src={Logo} alt="Logo" />
+        <Link to="/">
+          <img className="logo" src={Logo} alt="Logo" />
+        </Link>
         <h1>start slideshow</h1>
       </nav>
       <div className="line"></div>
