@@ -17,8 +17,10 @@
   margin-left: 16px;
 }
 
-.heroTitlewrapper {
+.heroTitleWrapper {
   position: relative;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .artistLabel {
@@ -67,16 +69,18 @@
 
 /* modal */
 
-.modalBtn {
+.heroBtnWrapper {
   position: absolute;
   top: 16px;
   left: 16px;
+}
+
+.modalBtn {
   background: #000000;
   mix-blend-mode: normal;
   opacity: 0.75;
   font-weight: 700;
   font-size: 10px;
-  line-height: 12px;
   text-align: right;
   letter-spacing: 2.14286px;
   color: #ffffff;
@@ -86,6 +90,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -105,12 +110,9 @@
 .modalContent {
   border-radius: 5px;
   position: relative;
- 
-
 }
 
 .modalContent img {
- 
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -129,12 +131,59 @@
   background: none;
   border: none;
   text-transform: uppercase;
-
 }
 
 .closeBtn:hover {
-
   cursor: pointer;
   text-decoration: underline;
+}
 
+.navigationTitle h2 {
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  
+}
+
+.navigationTitle {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navigationContainer {
+  margin-top: 67px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.navigationButtons {
+
+  display: flex;
+  gap: 23.24px;
+
+}
+
+@media screen and (min-width: 1440px) {
+  .heroTitleWrapper:hover .heroBtnWrapper {
+    /* opacity: 1; */
+  }
+
+  .heroTitleWrapper {
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  .heroBtnWrapper {
+    /* top: 40px;
+    opacity: 0; */
+  }
 }

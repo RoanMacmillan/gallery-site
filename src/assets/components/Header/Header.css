@@ -20,6 +20,18 @@ h1 {
   text-align: right;
   letter-spacing: 1.92857px;
   color: #7d7d7d;
+  
+}
+
+.slideLink {
+
+  text-decoration: none;
+}
+
+.slideLink:hover {
+
+  text-decoration: underline;
+  text-decoration-color:#7d7d7da4 !important;
 }
 
 .line {
