@@ -57,6 +57,23 @@
   padding-bottom: 40px;
 }
 
+.descripWrapper {
+  position: relative;
+}
+
+.bigText {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 100px;
+  text-align: right;
+  color: #f3f3f3;
+  z-index: -1;
+}
+
 .slideShow a {
   font-weight: 700;
   font-size: 9px;
@@ -142,7 +159,6 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  
 }
 
 .navigationTitle {
@@ -163,12 +179,12 @@
   justify-content: space-between;
   align-items: center;
   height: 72px;
+  position: relative;
 }
 
 .navigationButtons {
   display: flex;
   gap: 23.24px;
-
 }
 
 .navigationButtons button {
@@ -177,6 +193,99 @@
   border: none;
   background: none;
   width: 16.78px;
+}
+
+/* progress bar */
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  background: black;
+  height: 1px;
+  z-index: 2;
+}
+
+.emptyBar {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 100%;
+  background: #00000023;
+}
+
+.heroLarge {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    display: none;
+  }
+
+  .heroLarge {
+    display: unset;
+    margin-top: 40px;
+    width: 475px;
+  }
+
+  .artistLabel {
+    width: unset;
+    padding: unset;
+    margin: unset;
+    width: 445px;
+    height: 238px;
+    justify-content: flex-start;
+    padding-left: 50px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+  }
+
+  .artistLabel h1 {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+    width: 70%;
+  }
+
+  .portrait {
+    width: 128px;
+    margin-left: 30px;
+    margin-top: 84px;
+  }
+
+  .descripWrapper {
+  }
+
+  .descrip {
+    padding-left: 124px;
+    padding-right: 110px;
+    
+    padding-top: 75px;
+  }
+
+  .slideShow a {
+
+    padding-left: 124px;
+  }
+
+  .bigText {
+    left: 0;
+    right: unset;
+    top: 0;
+    font-size: 200px;
+    line-height: 150px;
+  }
+
+  .heroBtnWrapper {
+    top: 70px;
+  }
+
+  .heroTitleWrapper {
+    align-items: center;
+    display: flex;
+    position: relative;
+  }
 }
 
 @media screen and (min-width: 1440px) {
