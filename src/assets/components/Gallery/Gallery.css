@@ -163,7 +163,7 @@
 
   .textContainer, .gradientWrapper {
 
-    opacity: 0;
+    opacity: 1;
   }
 
   .galleryItem:nth-child(3) {
