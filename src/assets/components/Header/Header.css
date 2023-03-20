@@ -31,7 +31,12 @@ h1 {
 .slideLink:hover {
 
   text-decoration: underline;
-  text-decoration-color:#7d7d7da4 !important;
+  text-decoration-color:#000000a4 !important;
+}
+
+nav h1:hover {
+
+  color: black;
 }
 
 .line {

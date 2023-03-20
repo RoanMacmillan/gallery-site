@@ -13,7 +13,7 @@ const Gallery = () => {
     let delay = .2;
     galleryItems.forEach((item) => {
       item.style.animationDelay = delay + "s";
-      delay += 0.1;
+      delay += 0.075;
     });
   }, []);
 

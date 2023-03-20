@@ -4,6 +4,7 @@ import "./Slideshow.css";
 import React, { useEffect, useState } from "react";
 import backBtn from "../../images/shared/icon-back-button.svg";
 import fwdBtn from "../../images/shared/icon-next-button.svg";
+import enlargeIcon from "../../images/shared/icon-view-image.svg";
 
 const Slideshow = () => {
   const [showModal, setShowModal] = useState(false);
@@ -41,46 +42,55 @@ const Slideshow = () => {
     setProgress(((currentImageIndex + 1) / images.length) * 100);
   }, [currentImageIndex, images]);
 
+  
+
   return (
     <div className="slideShow">
-      <div className="heroTitleWrapper">
-        <img
-          src={images[currentImageIndex].images.hero.small}
-          alt={images[currentImageIndex].name}
-          className="hero"
-        ></img>
-        <img
-          src={images[currentImageIndex].images.hero.large}
-          alt={images[currentImageIndex].name}
-          className="heroLarge"
-        ></img>
+      <div className="desktopWrapper">
+        <div className="heroTitleWrapper">
+          <img
+            src={images[currentImageIndex].images.hero.small}
+            alt={images[currentImageIndex].name}
+            className="hero"
+          ></img>
+          <img
+            src={images[currentImageIndex].images.hero.large}
+            alt={images[currentImageIndex].name}
+            className="heroLarge"
+          ></img>
 
+          <div className="heroBtnWrapper">
+            <button
+              className="modalBtn"
+              type="button"
+              onClick={() => setShowModal(true)}
+            >
+              <img src={enlargeIcon} alt="View image icon" />
+              view image
+            </button>
+          </div>
+          <div className="artistLabel">
+            <h1>{images[currentImageIndex].name}</h1>
+            <p>{images[currentImageIndex].artist.name}</p>
+          </div>
+          <img
+            src={images[currentImageIndex].artist.image}
+            alt={images[currentImageIndex].artist.name}
+            className="portrait"
+          />
+        </div>
 
-        <div className="heroBtnWrapper">
-          <button
-            className="modalBtn"
-            type="button"
-            onClick={() => setShowModal(true)}
-          >
-            view image
-          </button>
+        <div className="rightContainer">
+          <div className="descripWrapper">
+            <p className="descrip">{images[currentImageIndex].description}</p>
+            <p className="bigText">{images[currentImageIndex].year}</p>
+          </div>
+          <a className="sourceLink" href={images[currentImageIndex].source}>
+            Go to source
+          </a>
         </div>
-        <div className="artistLabel">
-          <h1>{images[currentImageIndex].name}</h1>
-          <p>{images[currentImageIndex].artist.name}</p>
-        </div>
-        <img
-        src={images[currentImageIndex].artist.image}
-        alt={images[currentImageIndex].artist.name}
-        className="portrait"
-      />
       </div>
-      
-      <div className="descripWrapper">
-        <p className="descrip">{images[currentImageIndex].description}</p>
-        <p className="bigText">{images[currentImageIndex].year}</p>
-      </div>
-      <a href={images[currentImageIndex].source}>Go to source</a>
+
       {/* displays a modal when hero image is clicked */}
       {showModal && (
         // handles closing modal when clicking outside
@@ -101,10 +111,9 @@ const Slideshow = () => {
         </div>
       )}
 
-
       <div className="navigationContainer">
-      <div className="progressBar" style={{ width: `${progress}%` }}></div>
-      <div className="emptyBar"></div>
+        <div className="progressBar" style={{ width: `${progress}%` }}></div>
+        <div className="emptyBar"></div>
         <div className="navigationTitle">
           <h2>{images[currentImageIndex].name}</h2>
           <p>{images[currentImageIndex].artist.name}</p>
