@@ -33,7 +33,7 @@ body {
   padding-right: 1.5rem;
   position: relative;
   background: white;
-  
+  z-index: 0;
 }
 
 /* responsive images/videos */

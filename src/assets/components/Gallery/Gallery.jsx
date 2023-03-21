@@ -10,12 +10,13 @@ const Gallery = () => {
 
   useEffect(() => {
     const galleryItems = galleryRef.current.querySelectorAll(".galleryItem");
-    let delay = .01;
+    let delay = .03;
     galleryItems.forEach((item) => {
       item.style.animationDelay = delay + "s";
-      delay += 0.01;
+      delay += 0.04;
     });
   }, []);
+
 
   return (
     <main>
