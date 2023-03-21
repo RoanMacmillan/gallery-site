@@ -170,7 +170,7 @@
       "name": "Leonardo da Vinci"
     },
     "images": {
-      "thumbnail": "./assets/lady-with-an-ermine/thumbnail.jpg",
+      "thumbnail": "./assets/lady-with-an-ermine/gallery.jpg",
       "hero": {
         "small": "/assets/lady-with-an-ermine/hero-small.jpg",
         "large": "/assets/lady-with-an-ermine/hero-large.jpg"
@@ -250,7 +250,7 @@
       "name": "Jan van Eyck"
     },
     "images": {
-      "thumbnail": "./assets/arnolfini-portrait/gallery.jpg",
+      "thumbnail": "./assets/arnolfini-portrait/hero-large.jpg",
       "hero": {
         "small": "/assets/arnolfini-portrait/hero-small.jpg",
         "large": "/assets/arnolfini-portrait/hero-large.jpg"
