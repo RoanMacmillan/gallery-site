@@ -241,9 +241,15 @@
     position: relative;
   }
 
+  .galleryItem img {
+
+    
+
+  }
+
   .textContainer {
 
-    width: 70%;
+    width: 73%;
   }
 
   .galleryItem {
