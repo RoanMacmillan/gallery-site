@@ -28,7 +28,7 @@ const Gallery = () => {
           onClick={() => console.log("Clicked item ID:", item.id)}
         >
               <div className="gradientWrapper"></div>
-              <img src={item.images.gallery} alt={item.name} />
+              <img src={item.images.thumbnail} alt={item.name} />
               <div className="textContainer">
                 <h2>{item.name}</h2>
                 <p>{item.artist.name}</p>
