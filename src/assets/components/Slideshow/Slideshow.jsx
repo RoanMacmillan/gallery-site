@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import galleryData from "../../data.json";
 import "./Slideshow.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import backBtn from "../../images/shared/icon-back-button.svg";
 import fwdBtn from "../../images/shared/icon-next-button.svg";
 import enlargeIcon from "../../images/shared/icon-view-image.svg";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 const Slideshow = () => {
   const [showModal, setShowModal] = useState(false);
+  const nodeRef = useRef(null);
   // gets id from url using useParams hook
   const { id } = useParams();
   const image = galleryData.find((item) => item.id === parseInt(id));
@@ -41,8 +43,6 @@ const Slideshow = () => {
   useEffect(() => {
     setProgress(((currentImageIndex + 1) / images.length) * 100);
   }, [currentImageIndex, images]);
-
-  
 
   return (
     <div className="slideShow">
@@ -90,11 +90,17 @@ const Slideshow = () => {
           </a>
         </div>
       </div>
-
       {/* displays a modal when hero image is clicked */}
-      {showModal && (
-        // handles closing modal when clicking outside
-        <div className="modal" onClick={() => setShowModal(false)}>
+      <CSSTransition
+        in={showModal}
+        nodeRef={nodeRef}
+        timeout={200}
+        classNames="fade"
+        unmountOnExit
+      >
+        {/* {showModal && ( */}
+        {/* // handles closing modal when clicking outside */}
+        <div className="modal" ref={nodeRef} onClick={() => setShowModal(false)}>
           <div className="modalContent" onClick={(e) => e.stopPropagation()}>
             <img
               src={images[currentImageIndex].images.gallery}
@@ -109,7 +115,9 @@ const Slideshow = () => {
             </button>
           </div>
         </div>
-      )}
+
+        {/* )} */}
+      </CSSTransition>
 
       <div className="navigationContainer">
         <div className="progressBar" style={{ width: `${progress}%` }}></div>

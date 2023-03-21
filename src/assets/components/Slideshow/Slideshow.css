@@ -15,6 +15,7 @@
 .portrait {
   width: 64px;
   margin-left: 16px;
+ 
 }
 
 .heroTitleWrapper {
@@ -121,7 +122,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+}
+
+
+
+/* React Transition Group */
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 400ms;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
 }
 
 .modalContent {
