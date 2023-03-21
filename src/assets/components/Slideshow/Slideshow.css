@@ -15,13 +15,10 @@
 .portrait {
   width: 64px;
   margin-left: 16px;
- 
 }
 
 .heroTitleWrapper {
   position: relative;
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .artistLabel {
@@ -56,23 +53,19 @@
   line-height: 28px;
   color: #7d7d7d;
   padding-bottom: 40px;
-  
 }
 
 .descripWrapper {
   position: relative;
-  
-  
 }
 
 .desktopWrapper {
-  opacity: 0;
+  opacity: 1;
   animation-name: slideIn;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
-
 
 @keyframes slideIn {
   from {
@@ -145,8 +138,6 @@
   align-items: center;
 }
 
-
-
 /* React Transition Group */
 .fade-enter-active,
 .fade-exit-active {
@@ -190,7 +181,6 @@
   opacity: 0;
 }
 
-
 .modalContent {
   border-radius: 5px;
   position: relative;
@@ -222,76 +212,9 @@
   text-decoration: underline;
 }
 
-.navigationTitle h2 {
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-}
-
-.navigationTitle {
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.75;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.navigationContainer {
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 72px;
-  position: relative;
-}
-
-
-
-.navigationButtons {
-  display: flex;
-  gap: 23.24px;
-}
-
-.navigationButtons button {
-  cursor: pointer;
-
-  border: none;
-  background: none;
-  width: 16.78px;
-}
-
-/* progress bar */
-
-
-/* .progressBar {
-  position: absolute;
-  top: 0;
-  background: black;
-  height: 1px;
-  z-index: 2;
-  transition: 0.3s all ease-in-out;
-} */
-
-.emptyBar {
-  position: absolute;
-  top: 0;
-  height: 1px;
-  width: 100%;
-  background: #00000023;
-  
-}
-
-
-
 .heroLarge {
   display: none;
 }
-
-
 
 @media screen and (min-width: 702px) {
   .hero {
@@ -394,21 +317,10 @@
     margin-top: auto;
   }
 
-  .navigationTitle h2 {
-    font-size: 18px;
-  }
-
-  .navigationTitle p {
-    font-size: 13px;
-  }
-
-  
-
   .desktopWrapper {
     display: flex;
     align-items: center;
     margin-top: 100px;
-
   }
 
   .descripWrapper {
@@ -450,10 +362,6 @@
     width: 475px;
   }
 
-  .navigationContainer {
-    margin-top: 139px;
-  }
-
   .bigText {
     top: 70px;
   }
@@ -493,13 +401,5 @@
 
   .portrait {
     margin-bottom: -60px;
-  }
-
-  .navigationButtons button {
-    width: 25.17px;
-  }
-
-  .navigationButtons button:hover {
-    filter: invert(50%);
   }
 }
